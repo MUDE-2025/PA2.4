@@ -10,6 +10,13 @@ You can preview this assignment on https://mude.citg.tudelft.nl/workbook-2025/as
 
 In this assignment you'll make exercises on:
 
+1. [Numpy `axis`](./1_axis.ipynb)
+2. [Statsmodels autocorrelation function](./2_acf.ipynb)
 
+You'll need to have done this to be able to make the workshop and group assignment.
+
+You pass this PA if you:
+- Obtained the correct values in task 1.2
+- The notebook of exercise 2 runs without errors
 
 > Copyright 2025 MUDE, Delft University of Technology. This work is licensed under a CC BY 4.0 License
