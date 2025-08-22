@@ -26,9 +26,20 @@ jobs:
         max-score: 10
         setup-command: pip install numpy scipy pandas matplotlib jupyter ipykernel statsmodels
           pytest testbook
+    - name: Check notebook
+      id: check-notebook
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Check notebook
+        setup-command: pip install numpy scipy pandas matplotlib jupyter ipykernel statsmodels
+        command: |
+          jupyter nbconvert --execute 2_acf.ipynb --to notebook --inplace
+        timeout: 10
+        max-score: 10
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
         TEST-NOTEBOOK_RESULTS: "${{steps.test-notebook.outputs.result}}"
+        CHECK-NOTEBOOK_RESULTS: "${{steps.check-notebook.outputs.result}}"
       with:
-        runners: test-notebook
+        runners: test-notebook, check-notebook
