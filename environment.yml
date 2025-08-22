@@ -1,0 +1,13 @@
+name: mude-week-2-4
+channels:
+  - defaults
+dependencies:
+  - python=3.12
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib
+  - jupyter
+  - ipykernel
+  - pip
+  - statsmodels
