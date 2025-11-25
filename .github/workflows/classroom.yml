@@ -36,10 +36,21 @@ jobs:
           jupyter nbconvert --execute 2_acf.ipynb --to notebook --inplace
         timeout: 10
         max-score: 10
+    - name: Check notebook_asserts
+      id: check-notebook_asserts
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Check notebook asserts
+        setup-command: pip install numpy scipy pandas matplotlib jupyter ipykernel statsmodels
+        command: |
+          jupyter nbconvert --execute 3_asserts.ipynb --to notebook --inplace
+        timeout: 10
+        max-score: 10
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
         TEST-NOTEBOOK_RESULTS: "${{steps.test-notebook.outputs.result}}"
         CHECK-NOTEBOOK_RESULTS: "${{steps.check-notebook.outputs.result}}"
+        CHECK-NOTEBOOK_ASSERTS_RESULTS: "${{steps.check-notebook_asserts.outputs.result}}"
       with:
-        runners: test-notebook, check-notebook
+        runners: test-notebook, check-notebook, check-notebook_asserts
