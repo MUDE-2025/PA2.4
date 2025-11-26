@@ -9,7 +9,7 @@ In this assignment you'll make exercises on:
 1. [Numpy `axis`](./1_axis.ipynb)
 2. [Statsmodels autocorrelation function](./2_acf.ipynb)
 3. [Assert statements](./3._asserts.ipynb)
-4. [Unit tests](./4_unit.ipynb)
+4. [Unit tests](./4_unittests.md)
 
 You'll need to have done exercises 1 and 2 to be able to make the workshop and group assignment. Before doing exercise 3 and 4, please read the chapters in the MUDE book on [assert statements](ADD LINK) and [unit testing](ADD LINK)
 
