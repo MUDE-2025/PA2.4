@@ -37,3 +37,17 @@ class TestNotebookAssertions(unittest.TestCase):
             with self.assertRaises(AssertionError):
                 tb.execute_cell(2)
 
+
+class TestOldNotebookTest(unittest.TestCase):
+
+    def test_tests(self):
+        with testbook('3_asserts.ipynb', execute=False) as tb:
+
+            try:
+                tb.execute_cell(1)
+                tb.execute_cell(2)
+            except Exception as e:
+                self.fail(f"The old test cell failed with exception: {e}")
+
+if __name__ == "__main__":
+    unittest.main()
