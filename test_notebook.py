@@ -4,7 +4,7 @@ import io
 import numpy as np
 
 from max_even_squared import max_even_squared
-from my_test import TestMaxEvenSquared
+from my_test import TestMaxEvenSquared          # for the solution, replace 'my_test' with 'my_test_solution'
 
 def test_values():
     with testbook('1_axis.ipynb', execute=True) as tb:
