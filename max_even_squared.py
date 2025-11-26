@@ -1,4 +1,6 @@
-def max_even_square(nums):
+# Do not change the code in this file
+
+def max_even_squared(nums):
     if not isinstance(nums, (list, tuple)):
         raise TypeError("not a list")
     

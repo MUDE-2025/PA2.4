@@ -1,8 +1,10 @@
 from testbook import testbook
 import unittest
 import io
-import sys
 import numpy as np
+
+from max_even_squared import max_even_squared
+from my_test import TestMaxEvenSquared
 
 def test_values():
     with testbook('1_axis.ipynb', execute=True) as tb:
@@ -39,32 +41,31 @@ class TestNotebookAssertions(unittest.TestCase):
             with self.assertRaises(AssertionError):
                 tb.execute_cell(2)
 
+class TestExternalPyTest(unittest.TestCase):
 
-class TestNotebookTestOutput(unittest.TestCase):
-
-    def test_notebook_test_output(self):
-        """
-        Runs the notebook test cell and checks that it outputs as expected.
-        """
-
-        # Capture stdout
+    def test_external_test_file(self):
+      
+        # Capture stdout so we can inspect test runner output
         captured_output = io.StringIO()
-        sys_stdout = sys.stdout
-        sys.stdout = captured_output
+        runner = unittest.TextTestRunner(stream=captured_output, verbosity=2)
 
-        try:
-            with testbook('3_asserts.ipynb', execute=False) as tb:
-                tb.execute_cell(2)
-        except Exception as e:
-            self.fail(f"Notebook test cell raised an exception: {e}")
-        finally:
-            sys.stdout = sys_stdout
+        # Load all tests from the original test class
+        loader = unittest.TestLoader()
+        suite = loader.loadTestsFromTestCase(TestMaxEvenSquared)
+
+        # Run the test suite
+        result = runner.run(suite)
+
+        # Get the output
         output = captured_output.getvalue()
-        
-        # Check that the output contains the expected string
-        # For unittest in a notebook, usually it prints "OK" when tests pass
+
+        # Check that all tests passed
+        if not result.wasSuccessful():
+            self.fail(f"Original test class failed:\n{output}")
+
+        # Optionally check that output contains "OK"
         self.assertIn("OK", output, f"Expected 'OK' in output but got:\n{output}")
 
 
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main(argv=['first-arg-is-ignored'], exit=False)
