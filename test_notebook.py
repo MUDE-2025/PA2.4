@@ -1,5 +1,7 @@
 from testbook import testbook
 import unittest
+import io
+import sys
 import numpy as np
 
 def test_values():
@@ -38,16 +40,31 @@ class TestNotebookAssertions(unittest.TestCase):
                 tb.execute_cell(2)
 
 
-class TestOldNotebookTest(unittest.TestCase):
+class TestNotebookTestOutput(unittest.TestCase):
 
-    def test_tests(self):
-        with testbook('3_asserts.ipynb', execute=False) as tb:
+    def test_notebook_test_output(self):
+        """
+        Runs the notebook test cell and checks that it outputs as expected.
+        """
 
-            try:
-                tb.execute_cell(1)
+        # Capture stdout
+        captured_output = io.StringIO()
+        sys_stdout = sys.stdout
+        sys.stdout = captured_output
+
+        try:
+            with testbook('3_asserts.ipynb', execute=False) as tb:
                 tb.execute_cell(2)
-            except Exception as e:
-                self.fail(f"The old test cell failed with exception: {e}")
+        except Exception as e:
+            self.fail(f"Notebook test cell raised an exception: {e}")
+        finally:
+            sys.stdout = sys_stdout
+        output = captured_output.getvalue()
+        
+        # Check that the output contains the expected string
+        # For unittest in a notebook, usually it prints "OK" when tests pass
+        self.assertIn("OK", output, f"Expected 'OK' in output but got:\n{output}")
+
 
 if __name__ == "__main__":
     unittest.main()
