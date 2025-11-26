@@ -1,4 +1,5 @@
 from testbook import testbook
+import unittest
 import numpy as np
 
 def test_values():
@@ -21,3 +22,18 @@ def test_values():
 
         max_coins_year = tb.value('float(max_coins_year)')
         assert np.isclose(max_coins_year, 290.0, atol=5e-2)
+
+
+
+def test_assert():
+    with testbook('3_asserts.ipynb', execute=True) as tb:
+        x = tb.value('x')
+        assert np.isclose(x, 1.0, atol=1e-2) or np.isclose(x, 0.0, atol=1e-2), 'x should be 1 or 0'
+
+
+class TestNotebookAssertions(unittest.TestCase):
+    def test_assert2(self):
+        with testbook('3_asserts.ipynb', execute=False) as tb:
+            with self.assertRaises(AssertionError):
+                tb.execute_cell(2)
+
