@@ -1,9 +1,5 @@
-from testbook import testbook
 import unittest
 import io
-import numpy as np
-
-from max_even_squared import max_even_squared
 
 class TestExternalPyTest(unittest.TestCase):
 
