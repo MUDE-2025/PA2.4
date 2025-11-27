@@ -150,6 +150,7 @@ jobs:
             git commit -m "Generate assignment version"
             git rm .github/workflows/generate-student-notebook.yml
             git rm requirements.txt
+            git rm my_test_solution.py
             git add .
             git commit -m "Remove requirements and workflow file from assignment branch"
             git push origin assignment --force
@@ -236,6 +237,8 @@ jobs:
             git commit -m "Generate solution version"
             git rm .github/workflows/generate-student-notebook.yml
             git rm requirements.txt
+            git rm my_test.py
+            git mv my_test_solution.py my_test.py
             git add .
             git commit -m "Remove requirements and workflow file from solution branch"
             git push origin solution --force

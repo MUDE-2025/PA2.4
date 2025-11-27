@@ -7,10 +7,7 @@ Sometimes, you want to be able to quickly run a script to check if your code is 
 
 It is helpful to read the book chapter on testing before attempting this notebook!
 
-<div style="background-color:#AABAB2; color: black; width:95%; vertical-align: middle; padding:15px; margin: 10px; border-radius: 10px">
-<p>
-
-**Task 1:**
+## Task 1: Create a test in a py file
   
 Create a test for `max_even_squared.py` in the provided file `my_test.py`
 
@@ -27,6 +24,3 @@ The tests should:
 
 You can check what type of error occurs for each case by inspecting the original function. 
 **Do not change any of the file names or add any additional test files of your own. This will cause the autograder to fail.**
-
-</p>
-</div>
