@@ -1,4 +1,3 @@
-import unittest
 from testbook import testbook
 import numpy as np
 
@@ -24,20 +23,8 @@ def test_values():
         assert np.isclose(max_coins_year, 290.0, atol=5e-2)
 
 
-
 def test_assert():
     with testbook('3_asserts.ipynb', execute=False) as tb:
-        # Execute only the cell for Task 1 (cell index 1, which is the solution cell for x)
-        tb.execute_cell(1)
-        x = tb.value('x')
-        assert np.isclose(x, 1.0, atol=1e-2) or np.isclose(x, 0.0, atol=1e-2), 'x should be 1 or 0'
-
-
-class TestNotebookAssertions(unittest.TestCase):
-    def test_assert2(self):
-        with testbook('3_asserts.ipynb', execute=False) as tb:
-            with self.assertRaises(AssertionError):
-                tb.execute_cell(2)
-
-if __name__ == "__main__":
-    unittest.main(argv=['first-arg-is-ignored'], exit=False)
+        tb.execute_cell(2)
+        x = tb.get('x')
+        assert np.isclose(x, 1.0, atol=1e-2), 'x should be 1'

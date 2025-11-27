@@ -9,23 +9,48 @@ permissions:
   checks: write
   actions: read
   contents: read
+
 jobs:
   run-autograding-tests:
     runs-on: ubuntu-latest
     if: github.actor != 'github-classroom[bot]'
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: Set Jupyter platformdirs environment variable #to remove warning DeprecationWarning: Jupyter is migrating its paths to use standard platformdirs given by the platformdirs library
+
+    - name: Set Jupyter platformdirs environment variable
       run: echo "JUPYTER_PLATFORM_DIRS=1" >> $GITHUB_ENV
-    - name: Test tests
-      id: test-notebook
-      uses: classroom-resources/autograding-python-grader@v1
+
+    # -------------------------
+    # Test test_test.py
+    # -------------------------
+    - name: Test test_test.py
+      id: py-test1
+      uses: classroom-resources/autograding-command-grader@v1
       with:
+        test-name: Test test_test.py
+        setup-command: pip install numpy scipy pandas matplotlib jupyter ipykernel statsmodels pytest testbook
+        command: pytest test_test.py
         timeout: 10
-        max-score: 10
-        setup-command: pip install numpy scipy pandas matplotlib jupyter ipykernel statsmodels
-          pytest testbook unittest io
+        max-score: 5
+
+    # -------------------------
+    # Test test_notebooks.py
+    # -------------------------
+    - name: Test test_notebooks.py
+      id: py-test2
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Test test_notebooks.py
+        setup-command: pip install numpy scipy pandas matplotlib jupyter ipykernel statsmodels pytest testbook
+        command: pytest test_notebooks.py
+        timeout: 10
+        max-score: 5
+
+    # -------------------------
+    # Notebook execution test
+    # -------------------------
     - name: Check notebook
       id: check-notebook
       uses: classroom-resources/autograding-command-grader@v1
@@ -36,10 +61,15 @@ jobs:
           jupyter nbconvert --execute 2_acf.ipynb --to notebook --inplace
         timeout: 10
         max-score: 10
+
+    # -------------------------
+    # Report results
+    # -------------------------
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        TEST-NOTEBOOK_RESULTS: "${{steps.test-notebook.outputs.result}}"
+        PY-TEST1_RESULTS: "${{steps.py-test1.outputs.result}}"
+        PY-TEST2_RESULTS: "${{steps.py-test2.outputs.result}}"
         CHECK-NOTEBOOK_RESULTS: "${{steps.check-notebook.outputs.result}}"
       with:
-        runners: test-notebook, check-notebook
+        runners: py-test1, py-test2, check-notebook
