@@ -18,7 +18,7 @@ jobs:
       uses: actions/checkout@v4
     - name: Set Jupyter platformdirs environment variable #to remove warning DeprecationWarning: Jupyter is migrating its paths to use standard platformdirs given by the platformdirs library
       run: echo "JUPYTER_PLATFORM_DIRS=1" >> $GITHUB_ENV
-    - name: Test notebook
+    - name: Test tests
       id: test-notebook
       uses: classroom-resources/autograding-python-grader@v1
       with:
@@ -26,7 +26,7 @@ jobs:
         max-score: 10
         setup-command: pip install numpy scipy pandas matplotlib jupyter ipykernel statsmodels
           pytest testbook
-    - name: Check notebook
+    - name: Check notebooks
       id: check-notebook
       uses: classroom-resources/autograding-command-grader@v1
       with:
