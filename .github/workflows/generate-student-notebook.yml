@@ -194,11 +194,14 @@ jobs:
                 with open(notebook_file) as f:
                   notebook = nbformat.read(f, as_version=4)
 
-                # Execute the notebook
-                ep = ExecutePreprocessor(timeout=60, kernel_name='python3')
-                ep.preprocess(notebook, {'metadata': {'path': root}})
+                # Execute the notebook, allowing errors
+                ep = ExecutePreprocessor(timeout=60, kernel_name='python3', allow_errors=True)
+                try:
+                  ep.preprocess(notebook, {'metadata': {'path': root}})
+                except Exception as e:
+                  print(f'Error executing {notebook_file}: {e}')
 
-                # Save the executed notebook
+                # Save the executed notebook (with outputs, even if there were errors)
                 with open(notebook_file, 'w') as f:
                   nbformat.write(notebook, f)
           "
