@@ -1,12 +1,12 @@
 from max_even_squared import max_even_squared   #import the function to be tested
 
-class TestMaxEvenSquared():
+class TestMaxEvenSquared(unittest.TestCase):
 
     # Test that the function returns 16 for input [1, 2, 3, 4]
-    def test_regular_case():                                
+    def test_regular_case(self):                                
         assert max_even_squared([1, 2, 3, 4]) == 16            
 
-    def test_no_even_numbers():
+    def test_no_even_numbers(self):
         try:
             max_even_squared([1, 3, 5])
             assert False, "Expected an exception but none was raised"
