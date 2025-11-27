@@ -1,6 +1,8 @@
 import unittest
 import io
 
+from max_even_squared import max_even_squared
+
 class TestExternalPyTest(unittest.TestCase):
 
     def test_external_test_file(self):
@@ -31,3 +33,5 @@ class TestExternalPyTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main(argv=['first-arg-is-ignored'], exit=False)
+    
+  

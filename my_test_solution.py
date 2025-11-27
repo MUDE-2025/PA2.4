@@ -1,4 +1,5 @@
 from max_even_squared import max_even_squared   #import the function to be tested
+import unittest
 
 class TestMaxEvenSquared():
 
