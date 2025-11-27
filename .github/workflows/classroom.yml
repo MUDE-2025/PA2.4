@@ -25,8 +25,8 @@ jobs:
         timeout: 10
         max-score: 10
         setup-command: pip install numpy scipy pandas matplotlib jupyter ipykernel statsmodels
-          pytest testbook
-    - name: Check notebooks
+          pytest testbook unittest io
+    - name: Check notebook
       id: check-notebook
       uses: classroom-resources/autograding-command-grader@v1
       with:
