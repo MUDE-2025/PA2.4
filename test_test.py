@@ -4,11 +4,12 @@ import io
 import numpy as np
 
 from max_even_squared import max_even_squared
-from my_test import TestMaxEvenSquared          # for the solution, replace 'my_test' with 'my_test_solution'
 
 class TestExternalPyTest(unittest.TestCase):
 
     def test_external_test_file(self):
+        # Import inside the test to avoid pytest discovering it during collection
+        from my_test import TestMaxEvenSquared  # for the solution, replace 'my_test' with 'my_test_solution'
       
         # Capture stdout so we can inspect test runner output
         captured_output = io.StringIO()
