@@ -1,6 +1,6 @@
 from max_even_squared import max_even_squared   #import the function to be tested
 
-class TestMaxEvenSquared(unittest.TestCase):
+class TestMaxEvenSquared():
 
     # Test that the function returns 16 for input [1, 2, 3, 4]
     def test_regular_case():                                
