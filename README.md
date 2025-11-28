@@ -2,7 +2,7 @@
 
 *Due: `Friday`, `December` `5th`, `2025`.*
 
-You can preview this assignment on https://mude.citg.tudelft.nl/workbook-2025/assignments/PA2.4/README.html. You can obtain your personal repository for submission on: `classroom.github.com/a/<xxxxxxx>`.
+You can preview this assignment on https://mude.citg.tudelft.nl/workbook-2025/assignments/PA2.4/README.html. You can obtain your personal repository for submission on: https://classroom.github.com/a/FlYfcGpd.
 
 In this assignment you'll make exercises on:
 
