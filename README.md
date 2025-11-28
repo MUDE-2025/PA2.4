@@ -16,7 +16,8 @@ You'll need to have done exercises 1 and 2 to be able to make the workshop and g
 You pass this PA if you:
 - Obtained the correct values in task 1.2
 - The notebook of exercise 2 runs without errors
-- The first cell in notebook 3 does not raise an error
 - `my_test.py` runs with `pytest` without any errors and all tests pass
+
+`3_assert.py` will not be checked by the autograder, but you can see the error messages yourself easily enough :)
 
 > By Robert Lanzafame and Jialei Ding, Delft University of Technology. CC BY 4.0, more info [on the Credits page of Workbook](https://mude.citg.tudelft.nl/workbook-2025/credits.html).
