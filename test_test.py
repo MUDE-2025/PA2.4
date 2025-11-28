@@ -16,6 +16,9 @@ def test_external_test_file():
         if name.startswith('test_') and callable(getattr(my_test, name))
     ]
     
+    # Check that exactly 5 tests are present
+    assert len(test_functions) == 5, f"Expected 5 tests but found {len(test_functions)}"
+    
     # Run each test function
     passed = 0
     failed = 0
@@ -31,7 +34,7 @@ def test_external_test_file():
     
     # Check that all tests passed
     assert failed == 0, f"Some tests failed:\n" + "\n".join(errors)
-    assert passed > 0, "No tests were found or executed"
+    assert passed == 5, f"Expected 5 tests to pass but only {passed} passed"
 
 
 if __name__ == "__main__":
