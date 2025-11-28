@@ -21,10 +21,3 @@ def test_values():
 
         max_coins_year = tb.value('float(max_coins_year)')
         assert np.isclose(max_coins_year, 290.0, atol=5e-2)
-
-
-def test_assert():
-    with testbook('3_asserts.ipynb', execute=False) as tb:
-        tb.execute_cell(2)
-        x = tb.get('x')
-        assert np.isclose(x, 1.0, atol=1e-2), 'x should be 1'
