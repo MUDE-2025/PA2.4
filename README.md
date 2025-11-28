@@ -11,12 +11,12 @@ In this assignment you'll make exercises on:
 3. [Assert statements](./3._asserts.ipynb)
 4. [Tests](./4_tests.md)
 
-You'll need to have done exercises 1 and 2 to be able to make the workshop and group assignment. Before doing exercise 3 and 4, please read the chapters in the MUDE book on [assert statements](ADD LINK) and [unit testing](ADD LINK)
+You'll need to have done exercises 1 and 2 to be able to make the workshop and group assignment. Before doing exercise 3 and 4, please read the chapters in the [MUDE book](https://mude.citg.tudelft.nl/book/2025/programming/week_2_4.html).
 
 You pass this PA if you:
 - Obtained the correct values in task 1.2
 - The notebook of exercise 2 runs without errors
-- The first cell in notebook 3 does not raise an error and the 2nd cell in notebook 3 DOES raise an error
+- The first cell in notebook 3 does not raise an error
 - `my_test.py` runs with `pytest` without any errors and all tests pass
 
 > By Robert Lanzafame and Jialei Ding, Delft University of Technology. CC BY 4.0, more info [on the Credits page of Workbook](https://mude.citg.tudelft.nl/workbook-2025/credits.html).
