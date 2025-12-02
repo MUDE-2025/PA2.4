@@ -11,7 +11,7 @@ It is helpful to read the book chapter on testing before attempting this noteboo
   
 Create a test for `max_even_squared.py` in the provided file `my_test.py`
 
-The first test is completed for you as an example and you only need to fill in one variable in the second test.
+The first and second test is completed for you as an example.
 
 It is up to you to write the rest of the tests.
 
