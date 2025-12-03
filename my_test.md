@@ -1,3 +1,12 @@
+# `./my_test.py`
+
+```{custom_download_link} my_test.py
+:text: ".py"
+:replace_default: "True"
+```
+
+```python
+
 from max_even_squared import max_even_squared   #import the function to be tested
 
 def test_regular_case():                                
@@ -19,3 +28,5 @@ def test_non_integer_in_list():
 
 def test_empty_list():
     ### YOUR CODE HERE ###
+    
+```
