@@ -1,6 +1,6 @@
 # Programming assignment 2.4: Axis of Awesome
 
-*Due: `Friday`, `December` `5th`, `2025`.*
+*Due: Friday, December 5th, 2025.*
 
 You can preview this assignment on https://mude.citg.tudelft.nl/workbook-2025/assignments/PA2.4/README.html. After the deadline, this link will include solutions. The preview of the assignment version is shared here: https://mude.citg.tudelft.nl/workbook-2025/no_solutions/assignments/PA2.4/README.html. You can obtain your personal repository for submission on: https://classroom.github.com/a/FlYfcGpd.
 
