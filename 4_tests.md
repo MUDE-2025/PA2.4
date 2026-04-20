@@ -7,7 +7,7 @@ Sometimes, you want to be able to quickly run a script to check if your code is 
 
 It is helpful to read the book chapter on testing before attempting this notebook!
 
-## Task 1: Create a test in a py file
+## Task 4.1: Create a test in a py file
   
 Create a test for `max_even_squared.py` in the provided file `my_test.py`
 
